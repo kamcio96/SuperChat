@@ -9,7 +9,7 @@
 	<name>SuperChat</name>
 	<url>http://maven.apache.org</url>
 
-	<properties>
+	<properties> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -31,8 +31,16 @@
 			<url>http://repo.mcstats.org/content/repositories/public</url>
 		</repository>
 		<repository>
+			<id>simpleclans-repo</id>
+			<url>http://repo.sacredlabyrinth.net:8081/artifactory/releases/</url>
+		</repository>
+		<repository>
+			<id>mutliverse-repo</id>
+			<url>http://repo.onarandombox.com/content/repositories/multiverse/</url>
+		</repository>
+		<repository>
 			<id>local-repo</id>
-			<url>file://${basedir}</url>
+			<url>https://github.com/kamcio96/SuperChat/tree/master/</url>
 		</repository>
 	</repositories>
 
@@ -74,7 +82,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>lib</groupId>
+			<groupId>net.sacredlabyrinth.phaed.simpleclans</groupId>
 			<artifactId>SimpleClans</artifactId>
 			<version>Legacy</version>
 			<scope>provided</scope>
@@ -88,9 +96,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>lib</groupId>
+			<groupId>com.onarandombox.multiversecore</groupId>
 			<artifactId>Multiverse-Core</artifactId>
-			<version>2.4</version>
+			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
 
