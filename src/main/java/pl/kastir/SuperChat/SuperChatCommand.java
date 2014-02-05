@@ -3,12 +3,11 @@ package pl.kastir.SuperChat;
 import lombok.AllArgsConstructor;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -78,12 +77,11 @@ public class SuperChatCommand implements CommandExecutor {
 
         while(e.getPassenger() != null) e = e.getPassenger();
         System.out.println(e.toString());
-        FallingBlock en = kamcio96.getWorld().spawnFallingBlock(kamcio96.getEyeLocation(), Material.GOLD_BLOCK, (byte) 1);
-        en.setVelocity(new Vector(0, 10, 0));
-
+        Arrow arrow = kamcio96.getWorld().spawnArrow(kamcio96.getLocation(), new Vector(0, 10, 0), 10F, 0F);
+        //en.setVelocity(new Vector(0, 10, 0));
         //en.setDropItem(false);
-        e.setPassenger(en);
-
+        //en.setDropItem(false);
+        //e.setPassenger(en);
 
 
 
