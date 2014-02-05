@@ -1,0 +1,14 @@
+enable: true
+log-message: true
+achievement-notification: true
+global-chat-format: '%player$e: %message'
+antyspam:
+  enable: true
+  minsec: 2
+localchat:
+  enable: false
+  radius: 100.0
+  format: '$1&lt;%player&gt; %message'
+global-chat-auto: true
+chatenabled: true
+      

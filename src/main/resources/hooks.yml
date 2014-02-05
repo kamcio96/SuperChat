@@ -1,0 +1,39 @@
+factions:
+  enable: false
+  format: '[%tag]'
+  format-no-faction: '[<tip="Click here to join faction"><ref="/f join %tag">%tag</ref></tip>]'
+  no-faction-tag: No faction
+  no-faction-name: No faction
+  no-title: No title
+  display-empty: true
+spprefix: 
+  enable: false
+  format: '$c[%tag]'
+spsuffix: 
+  enable: false
+  format: '[%tag]'
+prefix: #vault stuff
+  enable: false
+  format: '[%tag]'
+suffix: #vault stuff
+  enable: false
+  format: '[%tag]'
+simpleclans:
+  enable: false
+  format: '[<tip="%name">%tag</tip>]'
+  format-no-clan: '[<tip="Click here to join clan><prompt="forgot cmd">%tag</ref></tip>]'
+  format-ally: '[%tag]'
+  format-enemy: '[%tag]'
+  no-clan-tag: No clan
+  no-clan-name: This player don't have any clan
+  display-empty: true
+multiverse:
+  enable: false
+  format: '[%name]'
+time:
+  enable: false
+  format: '%H:%i'
+player:
+  format: '$f<tip="$aClick here to send message"><prompt="/msg %name ">%name</prompt></tip>'
+  format-op: '$f<tip="$aClick here to tp"><ref="/tp %name">%name</ref></tip>'
+  format-self: '$f<tip="$aYup, it''s you">%name</tip>'

@@ -1,0 +1,29 @@
+name: SuperChat
+main: pl.kastir.SuperChat.SuperChat
+version: ${project.version}
+authors: [kamcio96, stirante]
+softdepend: [Simple Prefix, Factions, SimpleClans, Multiverse-Core, Vault]
+commands:
+  superchat:
+    description: Main SuperChat command.
+    aliases: [sc]
+    usage: /<command>
+permissions:
+   superchat.colors.colors:
+     description: Gives access to all colors.
+     children:
+       superchat.colors.dark_blue: true
+       superchat.colors.dark_green: true
+       superchat.colors.dark_aqua: true
+       superchat.colors.dark_red: true
+       superchat.colors.dark_purple: true
+       superchat.colors.gold: true
+       superchat.colors.gray: true
+       superchat.colors.dark_gray: true
+       superchat.colors.blue: true
+       superchat.colors.green: true
+       superchat.colors.aqua: true
+       superchat.colors.red: true
+       superchat.colors.light_purple: true
+       superchat.colors.yellow: true
+       superchat.colors.white: true

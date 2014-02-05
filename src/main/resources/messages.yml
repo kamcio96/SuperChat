@@ -1,0 +1,34 @@
+join: '$ePlayer %player joined.'
+quit: '$ePlayer %player leaved.'
+kick: '$ePlayer %player was kicked for %reason.'
+spam: '$4Don''t spam!'
+achievement: 'Player %player just got %achievement'
+nopermissions: No permissions
+cleared: Chat cleared!
+help: Help page.
+reloaded: Reloaded!
+toggled: Chat changed.
+entities:
+  CREEPER: 'creeper'
+  SKELETON: 'skeleton'
+  SPIDER: 'spider'
+  ZOMBIE: 'zombie'
+  SLIME: 'slime'
+  GHAST: 'ghast'
+  PIGZOMBIE: 'zombie pigman'
+  ENDERMAN: 'enderman'
+  CAVESPIDER: 'cave spider'
+  SILVERFISH: 'silverfish'
+  BLAZE: 'blaze'
+  LAVASLIME: 'magma cube'
+  ENDERDRAGON: 'ender dragon'
+  WITCH: 'witch'
+  PIG: 'pig'
+  SHEEP: 'sheep'
+  COW: 'cow'
+  CHICKEN: 'chicken'
+  WOLF: 'wolf'
+  MUSHROOMCOW: 'mushroom cow'
+  SNOWMAN: 'snowman'
+  VILLAGERGOLEM: 'iron golem'
+  WITHERBOSS: 'wither'
