@@ -70,21 +70,6 @@ public class SuperChatCommand implements CommandExecutor {
                 return true;
             }
         }
-
-        Player kamcio96 = Bukkit.getPlayer("kamcio96");
-
-        Entity e = kamcio96;
-
-        while(e.getPassenger() != null) e = e.getPassenger();
-        System.out.println(e.toString());
-        Arrow arrow = kamcio96.getWorld().spawnArrow(kamcio96.getLocation(), new Vector(0, 10, 0), 10F, 0F);
-        //en.setVelocity(new Vector(0, 10, 0));
-        //en.setDropItem(false);
-        //en.setDropItem(false);
-        //e.setPassenger(en);
-
-
-
         sender.sendMessage(Config.getMessage("help"));
         return true;
     }
