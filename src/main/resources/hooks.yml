@@ -1,11 +1,10 @@
 factions:
   enable: false
-  format: '[%tag]'
   format-no-faction: '[<tip="Click here to join faction"><ref="/f join %tag">%tag</ref></tip>]'
-  no-faction-tag: No faction
-  no-faction-name: No faction
-  no-title: No title
-  display-empty: true
+  format-self: '[<tip="Click here to join faction"><ref="/f join %tag">$a%tag</ref></tip>]'
+  format-enemy: '[<tip="Click here to join faction"><ref="/f join %tag">$c%tag</ref></tip>]'
+  format-ally: '[<tip="Click here to join faction"><ref="/f join %tag">$b%tag</ref></tip>]'
+  format-neutral: '[<tip="Click here to join faction"><ref="/f join %tag">$2%tag</ref></tip>]'
 spprefix: 
   enable: false
   format: '$c[%tag]'

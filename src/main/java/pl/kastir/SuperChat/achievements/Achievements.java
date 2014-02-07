@@ -31,13 +31,13 @@ import pl.kastir.SuperChat.utils.Util;
 import pl.kastir.SuperChat.utils.reflection.SafeField;
 
 public class Achievements implements Listener {
-    
+
     private static File                a;
     private static YamlConfiguration   config;
     private static String              achievementTemplate;
     private static String              achievementMessage;
     private static Map<String, String> templates = new HashMap<String, String>();
-    
+
     @SuppressWarnings("unchecked")
     public static void init(JavaPlugin p) {
         Bukkit.getServer().getPluginManager().registerEvents(new Achievements(), p);
@@ -67,7 +67,7 @@ public class Achievements implements Listener {
             t.printStackTrace();
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     public static void reload() {
         try {
@@ -92,7 +92,7 @@ public class Achievements implements Listener {
             t.printStackTrace();
         }
     }
-    
+
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         ServerStatisticManager o = SafeField.get(EntityPlayer.class, ((CraftPlayer) e.getPlayer()).getHandle(), "bO", ServerStatisticManager.class);
@@ -100,12 +100,12 @@ public class Achievements implements Listener {
         File f = SafeField.get(ServerStatisticManager.class, o, "d", File.class);
         SafeField.set(EntityPlayer.class, ((CraftPlayer) e.getPlayer()).getHandle(), "bO", new StatsManager(s, f));
     }
-    
+
     public static void sendMessage(Player p, String ach) {
         String result = achievementMessage;
         result = result.replace("%player", p.getDisplayName());
         result = result.replace("%achievement", achievementTemplate.replace("%id", ach).replace("%name", templates.get(ach)));
         if (Config.getBoolean("achievement-notification")) ChatSender.sendToPlayers(Lists.newArrayList(Bukkit.getOnlinePlayers()), result);
     }
-    
+
 }

@@ -28,7 +28,7 @@ public class AutoMessage {
     public void reload(){
         File f = new File(plugin.getDataFolder(), "automsg.yml");
         if(!f.exists()){
-            f.mkdirs();
+            f.getParentFile().mkdirs();
             try {
                 f.createNewFile();
             } catch (IOException e) {
@@ -37,15 +37,25 @@ public class AutoMessage {
         }
 
         config = YamlConfiguration.loadConfiguration(f);
+        config.options().copyDefaults(true);
         config.addDefaults(YamlConfiguration.loadConfiguration(plugin.getResource("automsg.yml")));
 
+        try {
+            config.save(f);
+            System.out.println("save");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-
+        if(!config.getBoolean("enabled")){
+            return;
+        }
 
         List<String> messages = new ArrayList<String>();
         for(String list : config.getStringList("messages")){
             messages.add(new SpecialMessage(list).toString());
         }
+
 
         if(task != null){
             task.cancel();
@@ -54,7 +64,7 @@ public class AutoMessage {
 
 
         task = new MessageScheduler(messages, config.getBoolean("random"));
-        task.runTaskTimer(plugin, 10, 10);
+        task.runTaskTimer(plugin, 10, config.getLong("time")*20);
     }
 
 }

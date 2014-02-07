@@ -11,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.mcstats.Metrics;
 
 import pl.kastir.SuperChat.achievements.Achievements;
+import pl.kastir.SuperChat.automessage.AutoMessage;
 import pl.kastir.SuperChat.configuration.Config;
 import pl.kastir.SuperChat.configuration.ItemNames;
 import pl.kastir.SuperChat.deaths.DeathInfo;
@@ -39,6 +40,10 @@ public class SuperChat extends JavaPlugin {
     @Getter
     private Util                util;
 
+    @Getter
+    private AutoMessage am;
+
+
     @Override
     public void onEnable() {
         Updater updater = new Updater(this, 56544, this.getFile(), Updater.UpdateType.NO_DOWNLOAD, false);
@@ -63,14 +68,14 @@ public class SuperChat extends JavaPlugin {
         try {
             Metrics metrics = new Metrics(this);
             metrics.start();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             w("Metrics error: " + e.getMessage());
         }
 
         registerHooks();
 
         util = new Util(this);
+        am = new AutoMessage(this);
 
         getCommand("superchat").setExecutor(new SuperChatCommand(this));
         Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);

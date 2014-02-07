@@ -1,5 +1,6 @@
 enabled: false
 rand: false
+time: 120
 messages:
 - '<tip="$cSimple Tip">Hello $2AutoMessage</tip>'
 - '<tip="$cSimple Tip">Hello $7second $2AutoMessage</tip>'

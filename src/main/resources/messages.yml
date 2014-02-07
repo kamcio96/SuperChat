@@ -7,7 +7,10 @@ nopermissions: No permissions
 cleared: Chat cleared!
 help: Help page.
 reloaded: Reloaded!
-toggled: Chat changed.
+toggle-true: Chat is now on.
+toggle-false: Chat is now off
+spy-on: Spy is now on
+spy-off: Spy is now off
 entities:
   CREEPER: 'creeper'
   SKELETON: 'skeleton'

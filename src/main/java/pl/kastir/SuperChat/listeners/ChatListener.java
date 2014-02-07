@@ -1,16 +1,17 @@
 package pl.kastir.SuperChat.listeners;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import pl.kastir.SuperChat.SuperChat;
 import pl.kastir.SuperChat.configuration.Config;
@@ -68,7 +69,7 @@ public class ChatListener implements Listener {
         e.setCancelled(true);
     }
 
-    public static void sendChatMessage(Player player, String message) {
+    public void sendChatMessage(Player player, String message) {
 
         boolean local = Config.getBoolean("local-chat");
 
@@ -85,21 +86,28 @@ public class ChatListener implements Listener {
         if (local) {
             rec.addAll(getLocalPlayers(player));
             format = localFormatted;
-        }
-        else {
-            rec.addAll(Arrays.asList(Bukkit.getOnlinePlayers()));
+        } else {
+            rec.addAll(getGlobalPlayers());
             format = globalFormatted;
         }
 
         Hooks.send(format, message, player, rec);
+        spy(ChatColor.GRAY + "Player " + player.getName() + " send message: " + message);
     }
 
-    private static List<Player> getLocalPlayers(Player player) {
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
+    public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event){
+        spy(ChatColor.GRAY + "Player " + event.getPlayer().getName() + " use command: " + event.getMessage());
+    }
+
+    private List<Player> getLocalPlayers(Player player) {
         Player[] bukkitplayer = Bukkit.getOnlinePlayers();
         List<Player> players = new ArrayList<Player>();
         players.add(player);
+        Util u = plugin.getUtil();
+
         for (Player top : bukkitplayer) {
-            if (((top.getWorld() == player.getWorld()) && (top.getLocation().distance(player.getLocation()) <= Config.getDouble("local-chat-radius"))) || (top.hasPermission("superchat.spy"))) {
+            if (((top.getWorld() == player.getWorld()) && (top.getLocation().distance(player.getLocation()) <= Config.getDouble("local-chat-radius"))) && !u.hasSpy(player)) {
                 players.add(top);
             }
 
@@ -107,4 +115,27 @@ public class ChatListener implements Listener {
 
         return players;
     }
+
+    private List<Player> getGlobalPlayers() {
+        List<Player> players = new ArrayList<Player>();
+        Util u = plugin.getUtil();
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if(!u.hasSpy(player)) players.add(player);
+        }
+
+        return players;
+    }
+
+
+    private void spy(String message){
+        Util u = plugin.getUtil();
+
+        for(Player p : Bukkit.getOnlinePlayers()){
+            if(u.hasSpy(p)) p.sendMessage(message);
+        }
+    }
+
+
+
 }
