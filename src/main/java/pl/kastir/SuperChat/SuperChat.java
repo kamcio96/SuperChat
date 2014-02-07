@@ -43,7 +43,6 @@ public class SuperChat extends JavaPlugin {
     @Getter
     private AutoMessage am;
 
-
     @Override
     public void onEnable() {
         Updater updater = new Updater(this, 56544, this.getFile(), Updater.UpdateType.NO_DOWNLOAD, false);
@@ -81,7 +80,6 @@ public class SuperChat extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Hooks.refresh();
-
     }
 
     @Override

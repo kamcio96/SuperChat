@@ -9,8 +9,8 @@ help: Help page.
 reloaded: Reloaded!
 toggle-true: Chat is now on.
 toggle-false: Chat is now off
-spy-on: Spy is now on
-spy-off: Spy is now off
+spy-true: Spy is now on
+spy-false: Spy is now off
 entities:
   CREEPER: 'creeper'
   SKELETON: 'skeleton'

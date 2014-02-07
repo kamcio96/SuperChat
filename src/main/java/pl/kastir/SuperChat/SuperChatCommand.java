@@ -79,7 +79,7 @@ public class SuperChatCommand implements CommandExecutor {
                     } else {
                         u.setSpy(player, true);
                     }
-                    player.sendMessage(Config.getMessage("spy" + u.hasSpy(player)));
+                    player.sendMessage(Config.getMessage("spy-" + u.hasSpy(player)));
                     return true;
                 }
                 sender.sendMessage(Config.getMessage("nopermissions"));
